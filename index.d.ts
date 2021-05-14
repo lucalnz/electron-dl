@@ -6,7 +6,7 @@ declare namespace electronDl {
 		transferredBytes: number;
 		totalBytes: number;
 	}
-	
+
 	interface File {
 		filename: string,
 		path: string,
@@ -68,10 +68,10 @@ declare namespace electronDl {
 		Optional callback that receives an object containing information about the progress of the current download item.
 		*/
 		readonly onProgress?: (progress: Progress) => void;
-		
+
 		/**
 		Optional callback that receives an object containing information about the combined progress of all download items done within any registered window.
-		
+
 		Each time a new download is started, the next callback will include it. The progress percentage could therefore become smaller again.
 		This callback provides the same data that is used for the progress bar on the app icon.
 		*/
@@ -81,7 +81,7 @@ declare namespace electronDl {
 		Optional callback that receives the [download item](https://electronjs.org/docs/api/download-item) for which the download has been cancelled.
 		*/
 		readonly onCancel?: (item: DownloadItem) => void;
-		
+
 		/**
 		Optional callback that receives an object with information about an item that has been completed. It is called for each completed item.
 		*/
@@ -100,6 +100,13 @@ declare namespace electronDl {
 		@default true
 		*/
 		readonly showBadge?: boolean;
+
+		/**
+		 * Allows downloaded files to overwrite files with the same name in the directory they are saved to.
+		 *
+		 * @default false
+		 */
+		readonly allowOverwrite?: boolean;
 	}
 }
 
